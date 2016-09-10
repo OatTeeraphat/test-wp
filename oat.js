@@ -6,39 +6,33 @@
   }, 500)
   //return 123;
  }
- 
+
  result = x()
  alert(result)
- 
+
  */
- 
+
  var app = {
  	get: function(path, cb){
   	if(path==='/oat') {
     	var res = {
-      	send: function(text){ 
-        	console.log(text) 
+      	send: function(text){
+        	console.log(text)
         }
       }
     	cb(null, res);
 		}
   }
  }
- 
+
  // query Mongo
  var doSmallWork = function(input, cb){
- 	setTimeout(function(){ 
+ 	setTimeout(function(){
   	cb(++input)
    }, 500);
  }
- 
- // query SQL
- var doHardWork = function(input, cb){
- 	setTimeout(function(){ 
-  	input += 2;
-  	cb(input)
-   }, 1000);
- }
+
+
 
  // Express
  app.get('/oat', function(req, res){
@@ -54,7 +48,7 @@
   	res.send(result);
     doSmallWork(result, res.send)
   })*/
- 
+
   /*doSmallWork(input, function(result){
   	res.send(result)
   	doSmallWork(result, function(result){
@@ -74,4 +68,3 @@ PublisherService = {
 PublisherService.getPubByPub_id(Pub_id, function(err, pub){
 	if(!err) res.json(pub)
 })
- 
