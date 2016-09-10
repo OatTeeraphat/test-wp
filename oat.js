@@ -25,24 +25,6 @@
   }
  }
 
- // query Mongo
- var doSmallWork = function(input, cb){
- 	setTimeout(function(){
-  	cb(++input)
-   }, 500);
- }
-
-
-
- // Express
- app.get('/oat', function(req, res){
- 	var input = 0;
-
-  for(var i=0; i<3; i++){
-  	doSmallWork(input, function(result){
-    	console.log(result)
-    })
-  }
 
   /*doHardWork(input, function(result){
   	res.send(result);
