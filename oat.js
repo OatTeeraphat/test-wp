@@ -24,31 +24,6 @@
 		}
   }
  }
- 
- // query Mongo
- var doSmallWork = function(input, cb){
- 	setTimeout(function(){ 
-  	cb(++input)
-   }, 500);
- }
- 
- // query SQL
- var doHardWork = function(input, cb){
- 	setTimeout(function(){ 
-  	input += 2;
-  	cb(input)
-   }, 1000);
- }
-
- // Express
- app.get('/oat', function(req, res){
- 	var input = 0;
-
-  for(var i=0; i<3; i++){
-  	doSmallWork(input, function(result){
-    	console.log(result)
-    })
-  }
 
   /*doHardWork(input, function(result){
   	res.send(result);
